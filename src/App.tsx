@@ -12,9 +12,7 @@ function App() {
   const outlet = useRoutes(router);
   return (
     <div className="App">
-        <Link to="/home">home</Link> |
-        <Link to="/about">about</Link>
-        {/* 占位符组件，窗口，有点类似于Vue中的 router-view */}
+        {/*占位符组件，窗口，有点类似于Vue中的 router-view */}
         {outlet}
     </div>
   )
