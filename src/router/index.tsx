@@ -13,6 +13,8 @@ const withLoadingComponent = (comp:JSX.Element)=>{
 
 const About = lazy(() => import("../views/About"))
 const Page1 = lazy(() => import("../views/Page1"))
+const Page2 = lazy(() => import("../views/Page2"))
+const Page301 = lazy(() => import("../views/Page301"))
 
 const routes = [
 {
@@ -27,13 +29,24 @@ const routes = [
         path:"/page1",
         element: withLoadingComponent(<Page1 />)
         },
-        //{
-        //path:"/page2",
-        //element: withLoadingComponent(<Page2 />)
-        //}
+        {
+        path:"/page2",
+        element: withLoadingComponent(<Page2 />)
+        }
+        ,
+        {
+        path:"/page3/page301",
+        element: withLoadingComponent(<Page301 />)
+        }
         ]
         
 },
+// 访问其余的都直接到首页：
+{
+    path:"*",
+    element:<Navigate to="/page1"/>
+    },
+    
 //{
 //    path:"/about",
 //    element:withLoadingComponent(<About/>),
