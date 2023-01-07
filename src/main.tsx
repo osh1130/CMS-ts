@@ -13,7 +13,7 @@ import store from "./store";
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
 </Provider>
 )

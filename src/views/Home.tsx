@@ -10,32 +10,32 @@ const View: React.FC = () => {
         
     return (
     <Layout style={{ minHeight: '100vh' }}>
-        {/* 侧边栏 */}
+        {/* Sider */}
         <Sider collapsible collapsed={collapsed} onCollapse={value =>
     setCollapsed(value)}>
-        {/* 侧边栏顶部logo */}
+        {/* Sider logo */}
         <div className="logo" ></div>
-        {/* 主菜单*/}
+        {/* MainMenu*/}
         <MainMenu></MainMenu>
         </Sider>
-        {/* 右侧界面 */}
+        {/* right */}
         <Layout className="site-layout">
             <Header className="site-layout-background" style={{paddingLeft:
 '16px' }}>
-            {/* 面包屑 */}
+            {/* Breadcrumb */}
                 <Breadcrumb className='crumb'>
                     <Breadcrumb.Item>User</Breadcrumb.Item>
                     <Breadcrumb.Item>Bill</Breadcrumb.Item>
                 </Breadcrumb>
             </Header>
-            {/* 内容部分 */}
-            <Content style={{ margin: '16px' }}>
-                {/* 窗口部分 */}
+            {/* Content */}
+            <Content style={{ margin: '16px 16px 0' }} className="site-layout-background">
+                {/* router */}
                 <Outlet/>
             </Content>
             
-            {/* 页脚部分 */}
-            <Footer style={{ textAlign: 'center' }}>cms-ta ©2018 Created by
+            {/* footer */}
+            <Footer style={{ textAlign: 'center' }}>cms-ts ©2022 Created by
     Vivi Zhao</Footer>
         </Layout>
     </Layout>

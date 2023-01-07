@@ -1,23 +1,40 @@
 import {useSelector,useDispatch} from "react-redux"
-import store from "@/store";
-// TS中提供了 ReturnType , 用于 获取函数类型的返回值类型
+
+// TS ReturnType is provided in to get the return value type of the function type
 //type RootState = ReturnType<typeof store.getState>
 
 const View = () => {
-    // 获取数据
-    const { num } = useSelector((state:RootState) => ({
-        num:state.num // 这里划曲线警告
+    // retrieve data
+    const { num,sarr } = useSelector((state:RootState) => ({
+        num:state.handleNum.num,
+        sarr:state.handleArr.sarr 
     }));
-    // 修改数据
+
+    
+    // change the data
     const dispatch = useDispatch();
     const changeNum = () =>{
-        dispatch({ type: 'add2',val:3 })
+        dispatch({ type: 'add3',val:1 })
+    }
+    const changeNum2 = () =>{
+        // redux-thunk：
+        dispatch((dis:Function)=>{
+            setTimeout(()=>{
+            dis({type:'add3',val:1})
+            },1000);
+        });
+    }
+    const changeArr = () =>{
+        dispatch({ type: 'sarrpush',val:10 })
     }
     return(
         <div className='page1'>
-            <p>这是Page1页面内容</p>
+            <p>This is the page content of Page1</p>
             <p>{num}</p>
-            <button onClick={changeNum}>按钮</button>
+            <button onClick={changeNum}>changeNum button</button>
+            <button onClick={changeNum2}>changeNum ansyn button</button>
+            <p>{sarr}</p>
+            <button onClick={changeArr}>changeArr button</button>
         </div>
     )
 }
